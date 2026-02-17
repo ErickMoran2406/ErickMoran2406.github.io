@@ -74,9 +74,10 @@ function renderCarrito(){
             <div class="item_controles">
                 <button onclick="cambiarCantidad(${index}, -1)">−</button>
                 <button onclick="cambiarCantidad(${index}, 1)">+</button>
-                <button onclick="eliminarProducto(${index})">✕</button>
+                <button onclick="eliminarProducto(${index}, ${item.cantidad})">✕</button>
             </div>
         `;
+        notifProd.innerHTML = `<span>${nItems}</span>`
 
         itemsContainer.appendChild(div);
     });
@@ -99,8 +100,8 @@ function cambiarCantidad(index, cambio){
     renderCarrito();
 }
 
-function eliminarProducto(index){
-    nItems -= 1
+function eliminarProducto(index, cantidad){
+    nItems -= cantidad
     notifProd.innerHTML = `<span>${nItems}</span>`
     if(nItems <= 0){ divNotifProd.style.display = 'none'; }
 
