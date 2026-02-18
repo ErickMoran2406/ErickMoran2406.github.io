@@ -38,10 +38,11 @@ li{ list-style: none; }
         justify-content: center;
         padding-bottom: 2rem;
 
-        h2{ font-size: 2.8rem; text-align: center; }
-        p{ font-size: 1.2rem; }
+        h2{ text-align: center; font-size: clamp(1.6rem, 4vw, 2.2rem); padding: 1rem 0; }
+        p{ text-align: center; font-size: clamp(0.8rem, 4vw, 1rem); }
     }
-    h2{ text-align: center; font-size: clamp(2rem, 2vw, 2.2rem); padding: 1rem 0; }
+
+    .productos_titulo{ font-size: clamp(1.5rem, 4vw, 2.1rem); }
 
     .paquetes{
         padding: 2rem 0;
@@ -51,7 +52,7 @@ li{ list-style: none; }
 
         h1{ 
             text-align: center; 
-            font-size: clamp(2.2rem, 2vw, 2.4rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             padding: 1rem 0 2rem 0;
             background: linear-gradient(135deg, #d4a373 0%, #f5e6d3 50%, #d4a373 100%);
             -webkit-background-clip: text;
@@ -179,7 +180,7 @@ li{ list-style: none; }
     text-align: center;
     margin: 0 auto;
 
-    h2{ font-size: clamp(1.5rem, 4vw, 1.7rem); padding: 0.8rem 0; text-align: center; }
+    h2{ font-size: clamp(1.5rem, 4vw, 2rem); padding: 0.8rem 0; text-align: center; }
 }
 
 .carrusel_track{
@@ -285,7 +286,7 @@ li{ list-style: none; }
     border-radius: 50%;
     padding: 0.9rem 1rem;
     /* font-size: 1.3rem; */
-    font-size: 1.8rem;
+    font-size: 2rem;
     border: none;
     cursor: pointer;
     background: #ffffff;
@@ -315,7 +316,7 @@ li{ list-style: none; }
         }
     }
 }
-.btn_carrito:hover{ scale: 1.1; transform: translate(-8px, -8px); }
+.btn_carrito:hover{ scale: 1.1; transform: translate(-5px, -5px); }
 
 .carrito{
     position: fixed;
@@ -619,9 +620,7 @@ li{ list-style: none; }
 
     /* Tablets pequeñas (2 columnas) */
     @media (min-width: 601px) and (max-width: 768px){
-        .paquetes{
-            h1{ font-size: 2.2rem; }
-            
+        .paquetes{            
             .div_paquetes{
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
@@ -639,76 +638,10 @@ li{ list-style: none; }
         }
     }
 
-    /* Móviles (1 columna) */
-    @media (max-width: 600px){
-        .paquetes{
-            padding: 1.5rem 0;
-            
-            h1{ 
-                font-size: 1.8rem; 
-                padding: 1rem 0 1.5rem 0;
-            }
-            
-            .div_paquetes{
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 1rem;
-                
-                .paquete{
-                    padding: 1.5rem;
-                    min-height: auto;
-                    
-                    h2{ 
-                        font-size: 1.4rem; 
-                        padding-bottom: 0.6rem;
-                    }
-                    
-                    ul{
-                        gap: 0.4rem;
-                        
-                        li{ 
-                            font-size: 0.9rem; 
-                            padding-left: 1.3rem;
-                        }
-                    }
-                    
-                    p{ 
-                        font-size: 0.85rem; 
-                        padding-top: 0.8rem;
-                    }
-                }
-            }
-        }
-    }
-
-    /* Móviles muy pequeños */
-    @media (max-width: 400px){
-        .paquetes{
-            h1{ font-size: 1.6rem; }
-            
-            .div_paquetes{
-                .paquete{
-                    padding: 1.2rem;
-                    
-                    h2{ font-size: 1.2rem; }
-                    ul li{ font-size: 0.85rem; }
-                    p{ font-size: 0.8rem; }
-                }
-            }
-        }
-    }
-
 @media (max-width: 400px){
-    .carrusel_productos{
-        .productos_header{
-            h2{ font-size: 2.2rem; }
-            p{ font-size: 0.8rem; }
-        }
-    }
-
     .carrusel_viewport{ 
         max-width: 300px;
-        h2{ font-size: 2rem; }
+        /* h2{ font-size: 2rem; } */
     }
 
     .btn_productos{
@@ -722,19 +655,37 @@ li{ list-style: none; }
 
     .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -15%; }
     .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -15%; }
-}
 
-@media (min-width: 401px) and (max-width: 600px){
-    .carrusel_productos{
-        .productos_header{
-            h2{ font-size: 2.2rem; }
-            p{ font-size: 0.8rem; }
+    .paquetes{
+        h1{ font-size: 1.6rem; }
+        
+        .div_paquetes{
+            .paquete{
+                padding: 1.2rem;
+                
+                h2{ font-size: 1.2rem; }
+                ul li{ font-size: 0.85rem; }
+                p{ font-size: 0.8rem; }
+            }
         }
     }
 
+    .btn_carrito{
+        font-size: 1.8rem;
+
+        .notif_prod{
+            position: absolute;
+            top: -10%;
+            right: -10%;
+        }
+    }
+}
+
+@media (min-width: 401px) and (max-width: 600px){
+
     .carrusel_viewport{ 
         max-width: 300px;
-        h2{ font-size: 2rem; }
+        /* h2{ font-size: 2rem; } */
     }
 
 
@@ -749,19 +700,24 @@ li{ list-style: none; }
 
     .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -18%; }
     .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -18%; }
+
+    .btn_carrito{
+        font-size: 1.8rem;
+
+        .notif_prod{
+            position: absolute;
+            top: -10%;
+            right: -10%;
+        }
+    }
 }
 
 @media (min-width: 601px) and (max-width: 800px){
-    .carrusel_productos{
-        .productos_header{
-            h2{ font-size: 2.2rem; }
-            p{ font-size: 0.8rem; }
-        }
-    }
+    
 
     .carrusel_viewport{ 
         max-width: 300px;
-        h2{ font-size: 2rem; }
+        /* h2{ font-size: 2rem; } */
     }
 
     .btn_marisco{ top: 42.5%; }
@@ -769,15 +725,19 @@ li{ list-style: none; }
 
     .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -25%; }
     .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -25%; }
+
+    .btn_carrito{
+        font-size: 1.9rem;
+
+        .notif_prod{
+            position: absolute;
+            top: -15%;
+            right: -15%;
+        }
+    }
 }
 
 @media (min-width: 801px) and (max-width: 1099px){
-    .carrusel_productos{
-        .productos_header{
-            h2{ font-size: 2.2rem; }
-            p{ font-size: 0.8rem; }
-        }
-    }
 
     .carrusel_viewport{ 
         max-width: 650px;
@@ -790,16 +750,39 @@ li{ list-style: none; }
 }
 
 @media (min-width: 1100px){
-    .carrusel_productos{
-        .productos_header{
-            h2{ font-size: 2.2rem; }
-            p{ font-size: 0.8rem; }
-        }
-    }
+    
 
     .carrusel_viewport{ 
         max-width: 970px;
     }
 
     .corte{ width: 300px; }
+}
+
+@media (max-width: 400px){
+    .paquetes{
+        .paq_titulo{
+            background-color: red;
+        }
+    }
+}
+
+@media (min-width: 401px) and (max-width: 600px){
+    
+}
+
+@media (min-width: 601px) and (max-width: 800px){
+    
+}
+
+@media (min-width: 801px) and (max-width: 900px){
+    
+}
+
+@media (min-width: 901px) and (max-width: 1000px){
+    
+}
+
+@media (max-width: 1099px){
+    
 }

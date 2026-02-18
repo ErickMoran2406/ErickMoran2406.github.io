@@ -326,15 +326,19 @@ h1, h2{ color: #f5f5f5; }
             position: relative;
 
             .cerrar_popup{
-                width: 1.7rem;
-                height: 1.7rem;
+                width: 40px;
+                height: 40px;
                 position: absolute;
                 top: 12px;
                 right: 12px;
                 background: none;
                 border: none;
                 cursor: pointer;
+                padding: 0.5rem;
+                border-radius: 50%;
+                transition: background-color 0.3s ease;
             }
+            .cerrar_popup:hover{ background-color: rgba(100, 100, 100, 0.6); }
             h2, p{ text-align: center; font-size: 1.5rem; letter-spacing: 1.5px; }
             p{ margin: 1rem; font-size: 1rem; }
             .p_tel{ margin: 1.5rem 0 0 0; }

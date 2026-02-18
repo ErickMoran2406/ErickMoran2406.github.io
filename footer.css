@@ -299,8 +299,8 @@ footer{
 }
 
 @media (max-width: 400px){
-    header .logo .logo_nombre p{ font-size: 1.6rem; }
-    header nav ul .secciones, .barra{ font-size: 0.8rem; }
+    header .logo .logo_nombre p{ font-size: 1.5rem; }
+    header nav ul .secciones .barra{ font-size: 0.7rem; }
 }
 
 @media (min-width: 401px) and (max-width: 600px){
@@ -314,7 +314,8 @@ footer{
 }
 
 @media (min-width: 801px) and (max-width: 900px){
-    
+    header .logo .logo_nombre p{ font-size: 1.8rem; }
+    header nav ul .secciones, .barra{ font-size: 0.8rem; }
 }
 
 @media (min-width: 901px) and (max-width: 1000px){

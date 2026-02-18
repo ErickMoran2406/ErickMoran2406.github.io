@@ -32,6 +32,7 @@ li{ list-style: none; }
     align-items: center;
     gap: 3rem;
     border-top: solid 1px;
+    position: relative;
 
     .servicios_header{
         text-align: center;
@@ -48,27 +49,20 @@ li{ list-style: none; }
         width: 80%;
 
         .servicio_card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
             background: #181818;
             border: 1px solid #222;
             border-radius: 16px;
-            padding: 2rem 1rem;
+            padding: clamp(1.5rem, 4vw, 2rem) clamp(0.5rem, 4vw, 1rem);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-            .icono{
-                font-size: 2.2rem;
-                display: block;
-                margin-bottom: 1rem;
-            }
-            h3{
-                font-size: clamp(1.1rem, 2vw, 1.3rem);
-                margin-bottom: 0.6rem;
-            }
-            p{
-                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-                line-height: 1.5;
-                color: #d0d0d0;
-            }
+            .icono{ width: 80%; aspect-ratio: 1/1; }
+            h3{ font-size: clamp(1.1rem, 2vw, 1.3rem); }
         }
         .servicio_card:hover{
             transform: translateY(-6px);
@@ -97,6 +91,112 @@ li{ list-style: none; }
             transform: scale(1.05);
         }
     }
+}
+.seccion_popups{
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+
+    /* opacity: 1;
+    visibility: visible; */
+
+    .popup_servicios{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* gap: 1rem; */
+        width: min(500px, 90vw);
+        background: #121212;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        border-radius: 20px;
+        position: relative;
+        
+        .div_cerrar_popup{
+            position: absolute;
+            top: 3%;
+            right: 3%;
+            display: flex;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+
+            svg{ width: 25px; height: 25px; }
+        }
+        .div_cerrar_popup:hover{ background-color: rgba(100, 100, 100, 0.6); }
+        .titulo_popup{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: solid;
+
+            img{ width: 50%; object-fit: cover; }
+            h2{padding-bottom: 1rem; font-size: 1.5rem; }
+        }
+        .info_popup{
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            h2{
+                font-size: clamp(1.1rem, 4vw, 1.4rem);
+                padding-bottom: 0.75rem;
+                margin-bottom: 0.75rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                width: 100%;
+                text-align: center;
+            }
+            p{
+                text-align: justify;
+                font-size: clamp(0.8rem, 4vw, 1rem);
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.85);
+            }
+        }
+    }
+    .popup_servicios::after, .popup_servicios::before{
+        --angulo: 0deg;
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        background-image: conic-gradient(from var(--angulo), transparent 70%, white);
+        padding: 0.25rem;
+        border-radius: 20px;
+        animation: 4s spin linear infinite;
+    }
+    .popup1::before, .popup2::before{
+        filter: blur(1.5rem);
+        opacity: 0.5;
+    }
+}
+
+@property --angulo{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes spin{
+    from{ --angulo: 0deg; }
+    to{ --angulo: 360deg; }
 }
 
 @media (min-width: 1213px) and (max-width: 1607px){
